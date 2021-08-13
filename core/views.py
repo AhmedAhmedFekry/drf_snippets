@@ -26,7 +26,7 @@ from rest_framework.decorators import api_view
 
 @csrf_exempt
 @api_view(['GET', 'POST'])
-def snippet_list(request):
+def snippet_list(request,format=None):
     
     """
     list all code snippets , or create a new snippet
@@ -48,7 +48,7 @@ def snippet_list(request):
 
 @api_view(['GET','PUT','DELETE'])
 @csrf_exempt
-def snippet_detail(request,pk):
+def snippet_detail(request,pk,format=None):
     try :
         snippet=Snippet.objects.get(id=pk)
     except Snippet.DoesNotExist:
